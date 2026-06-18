@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isidro Calderón | Consultor & Desarrollador Full Stack RD</title>
+  <meta name="description"
+    content="Desarrollador Full Stack en Santo Domingo, RD. 15 años de experiencia en desarrollo SaaS, integración e-CF DGII, modernización de sistemas legacy y optimización de bases de datos de alto rendimiento.">
+  <meta name="keywords"
+    content="Isidro Calderon, Full Stack Developer, DGII, e-CF, factura electronica RD, Oracle, migrar ASP, .NET 8, VB6, Santo Domingo, software dominicano">
+
+  <meta property="og:title" content="Isidro Calderón | Consultor & Desarrollador Full Stack">
+  <meta property="og:description"
+    content="Especialista en modernización de sistemas masivos, integración fiscal e-CF DGII y arquitecturas de alto rendimiento.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://tudominio.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1628;
+      --navy-mid: #132040;
+      --blue: #1A56DB;
+      --blue-light: #3B82F6;
+      --accent: #38BDF8;
+      --accent-dim: rgba(56, 189, 248, 0.12);
+      --white: #F8FAFC;
+      --muted: #94A3B8;
+      --border: rgba(148, 163, 184, 0.12);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(11, 22, 40, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 8px 18px !important;
+      border-radius: 6px !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-light) !important;
+      color: #fff !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.7);
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 span {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.6;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-cell {
+      background: var(--navy-mid);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tech-title {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech-pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .tech-pill.blue {
+      background: rgba(26, 86, 219, 0.15);
+      color: #93C5FD;
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .tech-pill.gray {
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    /* SECTION SHARED */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--navy-mid);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 15px;
+    }
+
+    .about-text p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .highlight-item:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .highlight-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent-dim);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .highlight-item h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .highlight-item p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* PROJECTS */
+    .projects-header {
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .project-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .proj-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .proj-badge.main {
+      background: rgba(26, 86, 219, 0.2);
+      color: #93C5FD;
+    }
+
+    .proj-badge.fiscal {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+    }
+
+    .proj-badge.module {
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--muted);
+    }
+
+    .proj-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .proj-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .ptag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .proj-visual {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .proj-stat-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mini-stat {
+      flex: 1;
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .mini-stat .n {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .mini-stat .l {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ecf-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ecf-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: rgba(26, 86, 219, 0.15);
+      color: #93C5FD;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    /* EXPERIENCE */
+    #experience {
+      background: var(--navy-mid);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--navy-mid);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    }
+
+    .tl-period {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .tl-role {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .tl-company {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .tl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tl-list li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .tl-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 3px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(56, 189, 248, 0.2);
+    }
+
+    .skill-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .skill-cat {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .skill-name {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .skill-bar-wrap {
+      width: 80px;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+    }
+
+    /* CONTACT CLEAN STYLES */
+    .contact-center {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-grid-clean {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 2.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      text-decoration: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-link-icon {
+      font-size: 24px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: wa-bounce 3s ease-in-out 2s infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+      animation: none;
+    }
+
+    @keyframes wa-bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .wa-float svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+    }
+
+    .wa-tooltip {
+      position: absolute;
+      right: 68px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #25D366;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .wa-float:hover .wa-tooltip {
+      opacity: 1;
+    }
+
+    .wa-tooltip::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-left-color: #25D366;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid-clean {
+        grid-template-columns: 1fr;
+      }
+
+      #experience .container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">ISIDRO CALDERON A<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Disponible para Proyectos y Consultoría
+      </div>
+      <!-- OPTIMIZADO PARA SEO -->
+      <h1>Full Stack Developer<br><span>Senior & Remoto.</span></h1>
+      <p class="hero-sub">
+        Soy <strong>Isidro Calderón</strong>, especialista en sistemas de alto rendimiento con 15 años de trayectoria. Modernización de aplicaciones críticas, optimización de bases de datos masivas e integración fiscal (e-CF DGII).
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Ver portafolio</a>
+        <a href="#contact" class="btn-secondary">Iniciar conversación</a>
+      </div>
+    </div>
+      <div class="hero-card">
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">años de exp.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">RPM</div>
+            <div class="stat-label">Miles de transac./min</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">Legacy</div>
+            <div class="stat-label">Migración Exitosa</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">e-CF</div>
+            <div class="stat-label">Certificado DGII</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <div class="tech-title">Stack Destacado</div>
+          <div class="tech-pills">
+            <span class="tech-pill">React / Next.js</span>
+            <span class="tech-pill blue">.NET 8 / C#</span>
+            <span class="tech-pill blue">Oracle DB / MongoDB</span>
+            <span class="tech-pill gray">DGII e-CF</span>
+            <span class="tech-pill gray">UI/UX Limpias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label">Especialidad Técnica</span>
+          <h2 class="section-title">Donde la estabilidad del Backend se cruza con la claridad visual</h2>
+          <p>Soy un ingeniero de software enfocado en resolver problemas complejos de arquitectura. No solo construyo
+            aplicaciones desde cero, sino que me especializo en intervenir entornos exigentes donde el rendimiento y la
+            precisión son críticos.</p>
+          <p>Tengo amplia experiencia <strong>modernizando infraestructuras obsoletas (ASP, VB6, ASP.NET WebForms /
+              VB.NET)</strong> hacia arquitecturas limpias de última generación como .NET 8 y ecosistemas basados en
+            APIs de alto rendimiento, garantizando continuidad operativa sin pérdida de datos.</p>
+          <p>Diseño soluciones escalables cuidando cada capa: desde la optimización del motor de datos hasta la entrega
+            de interfaces de usuario funcionales, ligeras y con una estética estrictamente pulida.</p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">⚡</div>
+            <div>
+              <h4>Bases de Datos a Gran Escala</h4>
+              <p>Optimización y procesamiento transaccional masivo (miles de operaciones por minuto) en Oracle, SQL
+                Server y MongoDB.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🔄</div>
+            <div>
+              <h4>Modernización Legacy</h4>
+              <p>Especialista en migrar código antiguo y lógicas de negocio complejas en VB6 o ASP clásico a plataformas
+                modernas y mantenibles.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🎨</div>
+            <div>
+              <h4>Interfaces Limpias y Robustas</h4>
+              <p>Desarrollo interfaces fluidas que simplifican datos complejos, priorizando un rendimiento impecable y
+                consistencia visual.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🧾</div>
+            <div>
+              <h4>Consultoría Fiscal Digital</h4>
+              <p>Arquitectura completa para la certificación e implementación del ecosistema de Comprobantes Fiscales
+                Electrónicos (e-CF) en RD.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <span class="section-label">Proyectos</span>
+        <h2 class="section-title">Lo que he construido</h2>
+        <p class="section-sub">Proyectos reales en producción, con usuarios activos y complejidad técnica real.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card featured">
+          <div>
+            <span class="proj-badge main">Proyecto principal</span>
+            <div class="proj-name">ProVenta</div>
+            <p class="proj-desc">Plataforma SaaS multi-módulo de gestión empresarial y facturación electrónica para
+              PYMEs dominicanas. Cubre el ciclo completo: compras → inventario → ventas → factura electrónica
+              certificada por la DGII. Incluye panel multi-empresa, órdenes de compra con PDF multi-moneda, módulo de
+              crédito (fiao) y reportes fiscales.</p>
+            <div class="proj-tags">
+              <span class="ptag">React / Next.js</span>
+              <span class="ptag">React Native</span>
+              <span class="ptag">Node.js / Express</span>
+              <span class="ptag">MongoDB</span>
+              <span class="ptag">ElectronJS</span>
+              <span class="ptag">Push Notificaciones</span>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-stat-row">
+              <div class="mini-stat">
+                <div class="n">SaaS</div>
+                <div class="l">en producción</div>
+              </div>
+              <div class="mini-stat">
+                <div class="n">RD</div>
+                <div class="l">mercado activo</div>
+              </div>
+            </div>
+            <div
+              style="background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.15); border-radius: 10px; padding: 1rem;">
+              <div
+                style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 10px;">
+                Módulos activos</div>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted);">
+               <span>✓ &nbsp;Control de Inventario y Almacenes</span>
+              <span>✓ &nbsp;Órdenes de Compra (OC) Multimoneda</span>
+              <span>✓ &nbsp;Módulo de Crédito a Clientes (Fiao)</span>
+              <span>✓ &nbsp;Gestión de Notas de Crédito / Débito</span>
+              <span>✓ &nbsp;Panel de Analíticas y Reportes Fiscales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="proj-badge fiscal">Core SaaS & Consultoría Fiscal</span>
+          <div class="proj-name">Motor e-CF & Servicio de Certificación DGII</div>
+          <p class="proj-desc">Implementación del flujo técnico completo para la facturación electrónica bajo la Ley
+            32-23: desde la construcción de estructuras XML validadas por XSD y firmas digitales XAdES-BES, hasta el
+            trackeo automatizado de respuestas y generación de representaciones impresas con código QR fiscal. Ofrezco
+            acompañamiento integral en el proceso de pruebas ante la DGII, garantizando el éxito en el Paso 4 (envío
+            automatizado de batches de prueba) hasta la resolución definitiva.</p>
+          <div style="margin-bottom: 1rem;">
+            <div
+              style="font-size: 11px; color: var(--muted); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+              Logros Técnicos</div>
+            <div class="ecf-types">
+              <span class="ecf-pill">E31 – Crédito Fiscal</span>
+              <span class="ecf-pill">E32 – Consumo</span>
+              <span class="ecf-pill">E33/E34 – Notas CD</span>
+              <span class="ecf-pill">E41 – Especiales</span>
+              <span class="ecf-pill">E43–E47 – Regímenes Esp.</span>
+            </div>
+          </div>
+          <div class="proj-tags">
+            <span class="ptag">XML / XSD</span>
+            <span class="ptag">XAdES-BES</span>
+            <span class="ptag">Firma Digital</span>
+            <span class="ptag">Consultoría DGII (Ley 32-23)</span>
+            <span class="ptag">21/21 e-CF</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="proj-badge module">Integración API / Delivery</span>
+          <div class="proj-name">Hub de Integración: Uber Eats & PedidosYa</div>
+          <p class="proj-desc">Desarrollo de un motor de sincronización bidireccional en tiempo real con las plataformas
+            de delivery líderes. El sistema gestiona la inyección inmediata de pedidos entrantes mediante Webhooks hacia
+            la base de datos centralizada, automatiza la actualización dinámica de catálogos complejos (menús, precios,
+            modificadores) vía API, e implementa colas de mensajería resilientes para asegurar cero pérdida de órdenes
+            durante picos masivos de transacciones simultáneas.</p>
+          <div style="margin-bottom: 1rem;">
+            <div
+              style="font-size: 11px; color: var(--muted); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+              Logros Técnicos</div>
+            <div class="ecf-types">
+              <span class="ecf-pill">Inyección Automatizada de Órdenes</span>
+              <span class="ecf-pill">Resiliente frente a Fallos</span>
+              <span class="ecf-pill">Sincronización Dinámica de Menús (Catalog API)</span>
+            </div>
+          </div>
+          <div class="proj-tags">
+            <span class="ptag">APIs REST</span>
+            <span class="ptag">Webhooks</span>
+            <span class="ptag">Sincronización en Tiempo Real</span>
+            <span class="ptag">Catalog API</span>
+            <span class="ptag">Manejo de Colas</span>
+            <span class="ptag">Alta Concurrencia</span>
+          </div>
+        </div>
+
+        <div class="project-card featured" style="border-top: 2px solid var(--border); background: rgba(255, 255, 255, 0.01);">
+        <div>
+          <span class="proj-badge" style="background: rgba(148,163,184,0.1); color: var(--muted); border: 1px solid var(--border);">Arquitectura Corporativa & Finanzas</span>
+          <div class="proj-name">Core API de Integración Aseguradoras</div>
+          <p class="proj-desc">Diseño y desarrollo de la capa de servicios distribuidos para la interconexión de datos e interoperabilidad entre una aseguradora líder local y su matriz estratégica en Europa. Un sistema crítico de alta disponibilidad enfocado en la solidez transaccional y cumplimiento estricto de auditorías financieras interregionales.</p>
+          <div class="proj-tags" style="margin-top: 1.5rem;">
+            <span class="ptag">.NET Core / C#</span>
+            <span class="ptag">WebAPIs REST</span>
+            <span class="ptag">Arquitectura Limpia</span>
+            <span class="ptag">Seguridad Empresarial</span>
+            <span class="ptag">Enterprise Integrations</span>
+          </div>
+        </div>
+        <div class="proj-visual" style="justify-content: flex-start; padding-top: 1.5rem;">
+          <div style="background: rgba(148,163,184,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 1rem;">
+            <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 10px;">Flujos Integrados Transfronterizos</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted);">
+              <span>• &nbsp;Procesamiento de Reclamos en Tiempo Real (Claims Core)</span>
+              <span>• &nbsp;Sincronización Financiera y Contable Automática</span>
+              <span>• &nbsp;Conciliación de Primas y Balances Multimoneda</span>
+              <span>• &nbsp;Unificación e Interoperabilidad de Identidades</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="experience">
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+      <div>
+        <span class="section-label">Trayectoria</span>
+        <h2 class="section-title">15 años en el campo</h2>
+        <p class="section-sub" style="margin-bottom: 2.5rem;">Desde desarrollo web para empresas locales hasta
+          arquitectura de productos SaaS en producción.</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-period">2020 — Presente</div>
+            <div class="tl-role">Fundador & Lead Developer</div>
+            <div class="tl-company">ProVenta · Santo Domingo, RD</div>
+            <ul class="tl-list">
+            <li>Arquitectura, modelado de datos y desarrollo completo de la plataforma SaaS multi-empresa.</li>
+            <li>Certificación del motor e-CF ante la DGII, logrando la aprobación del 100% de los comprobantes (21/21).</li>
+            <li>Diseño de automatizaciones y orquestación de flujos de trabajo internos mediante n8n para optimizar la eficiencia operativa.</li>
+            <li>Integración estratégica de Inteligencia Artificial en el ciclo de desarrollo para la detección temprana de bugs, refactorización y automatización de pruebas críticas.</li>
+          </ul>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-period">2012 — 2022</div>
+            <div class="tl-role">Desarrollador Web Full Stack</div>
+            <div class="tl-company">Freelance · RD y región</div>
+            <ul class="tl-list">
+              <li>Desarrollo de sistemas de gestión empresarial a medida.</li>
+              <li>Aplicaciones web para clientes en múltiples industrias.</li>
+              <li>Integración con APIs, pasarelas de pago y servicios externos.</li>
+              <li>Despliegue y mantenimiento en servidores Linux/cloud.</li>
+            </ul>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-period">2007 — 2012</div>
+            <div class="tl-role">Programador Web</div>
+            <div class="tl-company">Inicio de carrera · RD</div>
+            <ul class="tl-list">
+              <li>Desarrollo de sitios y aplicaciones web para empresas locales.</li>
+              <li>Formación en bases de datos, backend y frontend.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">Formación</span>
+        <h2 class="section-title">Educación Continua</h2>
+        <p class="section-sub" style="margin-bottom: 2.5rem;">Base académica + aprendizaje continuo en tecnologías
+          modernas.</p>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 2.5rem;">
+          <div
+            style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px;">Ingeniería de
+              Software</div>
+            <div style="font-size: 13px; color: var(--muted);">República Dominicana</div>
+          </div>
+        </div>
+        <span class="section-label">Idiomas</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 1rem;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px;">
+            <span style="font-size: 14px; color: var(--white);">Español</span>
+            <span
+              style="font-size: 11px; background: var(--accent-dim); color: var(--accent); padding: 3px 10px; border-radius: 4px; font-weight: 600;">Nativo</span>
+          </div>
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px;">
+            <span style="font-size: 14px; color: var(--white);">Inglés</span>
+            <span
+              style="font-size: 11px; background: rgba(148,163,184,0.1); color: var(--muted); padding: 3px 10px; border-radius: 4px; font-weight: 600;">Intermedio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="skills">
+    <div class="container">
+      <span class="section-label">Habilidades</span>
+      <h2 class="section-title" style="margin-bottom: 2.5rem;">Especialización y Herramientas</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">⚛️</div>
+          <div class="skill-cat">Frontend & UI</div>
+          <div class="skill-items">
+            <div class="skill-row"><span class="skill-name">React / Next.js / Blazor</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:95%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">Diseño de UI Limpias</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:92%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">Blueprint.js / Bootstrap</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🖥️</div>
+          <div class="skill-cat">Backend & Migraciones</div>
+          <div class="skill-items">
+            <div class="skill-row"><span class="skill-name">.NET 8 / Node.js</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:93%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">Refactorización Legacy (VB6/ASP)</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:90%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">Arquitectura de APIs REST</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-cat">Data & Alto Rendimiento</div>
+          <div class="skill-items">
+            <div class="skill-row"><span class="skill-name">Oracle DB (Alta Carga)</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:90%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">Optimización de Queries / SP</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:92%"></div>
+              </div>
+            </div>
+            <div class="skill-row"><span class="skill-name">MongoDB / SQL Server</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="width:88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-center">
+        <span class="section-label">¿Hablamos?</span>
+        <h2 class="section-title">Hagamos evolucionar tu plataforma</h2>
+        <p style="color: var(--muted); font-size: 16px; line-height: 1.8;">
+          Ya sea para una integración fiscal de e-CF, la migración crítica de un sistema heredado o la optimización de
+          bases de datos congestionadas, puedes contactarme directamente. Respondo ágilmente por canales profesionales.
+        </p>
+
+        <div class="contact-grid-clean">
+          <a href="https://wa.me/18099933090" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💬</span>
+            <div style="text-align: left;">
+              <strong style="display:block; color:var(--white); font-size:14px;">WhatsApp</strong>
+              <span style="font-size:12px; color:var(--muted);">Respuesta inmediata para proyectos</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/isidro-calderon-abreu" class="contact-link" target="_blank">
+            <span class="contact-link-icon">🔗</span>
+            <div style="text-align: left;">
+              <strong style="display:block; color:var(--white); font-size:14px;">LinkedIn</strong>
+              <span style="font-size:12px; color:var(--muted);">Perfil profesional y trayectoria</span>
+            </div>
+          </a>
+          <a href="mailto:isidroca@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div style="text-align: left;">
+              <strong style="display:block; color:var(--white); font-size:14px;">Correo Electrónico</strong>
+              <span style="font-size:12px; color:var(--muted);">isidroca@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://github.com/isidroca" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💻</span>
+            <div style="text-align: left;">
+              <strong style="display:block; color:var(--white); font-size:14px;">GitHub</strong>
+              <span style="font-size:12px; color:var(--muted);">Repositorios y código fuente</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>©
+      <script>document.write(new Date().getFullYear())</script> Isidro Calderón · Full Stack Developer · República
+      Dominicana
+    </p>
+  </footer>
+
+  <a href="https://wa.me/18091234567" class="wa-float" target="_blank" rel="noopener"
+    aria-label="Contactar por WhatsApp">
+    <div class="wa-tooltip">¡Escríbeme!</div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+</body>
+
+</html>
